@@ -16,7 +16,7 @@ class DTOTestEntradaSalida {
 	private String resultadoSalida;
 
 	@BeforeEach
-	public void setUp() {
+	public void setCarga() {
 		resultadoEntrada = new EntradaDTO(3.4, 1.3).toString();
 		resultadoSalida = new SalidaDTO(4.6).toString();
 	}
