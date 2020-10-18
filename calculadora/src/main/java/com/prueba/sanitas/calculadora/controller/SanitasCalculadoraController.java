@@ -23,6 +23,10 @@ import io.swagger.annotations.ApiResponses;
 
 /**
  * @author Jose
+ **
+ * Hay mucha documentación tanto del controlador como de la clase principal en:
+ * https://www.paradigmadigital.com/dev/documenta-tus-microservicios-springboot-springfox/
+ * y en Baeldung 
  *
  */
 @RestController
@@ -37,7 +41,7 @@ public class SanitasCalculadoraController {
 
 	/**
 	 * Suma dos numeros encapsulados en el objeto EntradaSumaDTO compuesto por dos
-	 * Double que se pasa como un JSON como un String
+	 * Double que se pasa en un JSON como un String
 	 *
 	 * @return Resultado de la suma
 	 */
@@ -54,12 +58,12 @@ public class SanitasCalculadoraController {
 
 	/**
 	 * Resta dos numeros, el segundo al primero encapsulados en el objeto
-	 * EntradaSumaDTO compuesto por dos Double que se pasa como un JSON como un
+	 * EntradaSumaDTO compuesto por dos Double que se pasa en un JSON como un
 	 * String
 	 *
 	 * @return Resultado de la resta
 	 */
-	@ApiOperation(value = "Resta aritmetica", notes = "Devuelve la resta de dos elementos aritmeticos, el primero menos el segundo")
+	@ApiOperation(value = "Resta aritmetica de dos numeros", notes = "Devuelve la resta de dos elementos aritmeticos no nulos")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "OK", response = SalidaDTO.class),
 			@ApiResponse(code = 404, message = "Not Found", response = String.class),
 			@ApiResponse(code = 500, message = "Internal Server Error", response = String.class) })

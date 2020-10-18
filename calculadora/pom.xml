@@ -43,12 +43,6 @@
 			<artifactId>junit-jupiter-engine</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
-		<dependency>
-			<groupId>io.opentracing.contrib</groupId>
-			<artifactId>opentracing-globaltracer</artifactId>
-			<version>0.1.0</version>
-		</dependency>
 
 		<dependency>
 			<groupId>io.springfox</groupId>
