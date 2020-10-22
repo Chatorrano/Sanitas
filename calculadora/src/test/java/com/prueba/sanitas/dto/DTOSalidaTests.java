@@ -5,6 +5,8 @@ package com.prueba.sanitas.dto;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.math.BigDecimal;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -23,13 +25,13 @@ class DTOSalidaTests {
 	 */
 	@BeforeEach
 	void setUp() throws Exception {
-		resultadoSalida = new SalidaDTO(4.6).toString();
+		resultadoSalida = new SalidaDTO(new BigDecimal(4.6)).toString();
 	}
 
 	@Test
 	public void testDTOSalida() {
 		SalidaDTO salida = new SalidaDTO();
-		salida.setSalida(4.6);
+		salida.setSalida(new BigDecimal(4.6));
 		assertEquals(salida.toString(), resultadoSalida);
 	}
 }

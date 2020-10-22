@@ -12,7 +12,5 @@ import com.prueba.sanitas.calculdadora.dto.salida.SalidaDTO;
  */
 public interface CalculadoraService {
 	
-	public SalidaDTO suma(EntradaDTO entrada);
-
-	public SalidaDTO resta(EntradaDTO entrada);
+	public SalidaDTO operacion(EntradaDTO entrada);
 }

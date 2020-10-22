@@ -3,6 +3,8 @@
  */
 package com.prueba.sanitas.calculadora.service;
 
+import java.math.BigDecimal;
+
 import org.springframework.stereotype.Service;
 
 import com.prueba.sanitas.calculadora.dto.entrada.EntradaDTO;
@@ -19,24 +21,22 @@ public class CalculadoraServiceImpl implements CalculadoraService {
 	
 	TracerImpl trazador = new TracerImpl();
 	
-	public SalidaDTO suma(EntradaDTO entrada) {
-		SalidaDTO result = new SalidaDTO(0.0);
-		if ( null != entrada.getNumero1() && 
-				null != entrada.getNumero2() ) {
-			result = new SalidaDTO(entrada.getNumero1() + entrada.getNumero2());
+	public SalidaDTO operacion(EntradaDTO entrada) {
+		SalidaDTO result = new SalidaDTO(new BigDecimal(0.0));
+		switch (entrada.getOperacion()) {
+			case SUMA:{
+				result = new SalidaDTO(entrada.getNumero1().add(entrada.getNumero2()));
+				trazador.trace("SUMA realizada resultado: " + result);
+				break;
+			}
+			case RESTA:{
+				result = new SalidaDTO(entrada.getNumero1().subtract(entrada.getNumero2()));
+				trazador.trace("Resta realizada resultado: " +result);
+				break;
+			}
+			default:
+				trazador.trace("Operación no definida");
 		}
-		trazador.trace(result);
 		return result;
 	}
-
-	public SalidaDTO resta(EntradaDTO entrada) {
-		SalidaDTO result = new SalidaDTO(0.0);
-		if ( null != entrada.getNumero1() && 
-				null != entrada.getNumero2() ) {
-			result = new SalidaDTO(entrada.getNumero1() - entrada.getNumero2());
-		}
-		trazador.trace(result);
-		return result;
-	}
-
 }

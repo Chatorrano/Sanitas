@@ -3,6 +3,10 @@
  */
 package com.prueba.sanitas.calculdadora.dto.salida;
 
+import java.math.BigDecimal;
+
+import com.prueba.sanitas.calculadora.utils.Redondear;
+
 import io.swagger.annotations.ApiModelProperty;
 
 /**
@@ -12,20 +16,21 @@ import io.swagger.annotations.ApiModelProperty;
 public class SalidaDTO {
 	
 	@ApiModelProperty(value = "Salida", required = true, example = "1", position = 1)
-	Double salida;
+	BigDecimal salida;
 
-	public SalidaDTO(Double salida) {
+	public SalidaDTO(BigDecimal salida) {
 		this.salida = salida;
 	}
 
 	public SalidaDTO() {
 	}
 
-	public Double getSalida() {
-		return salida;
+	public BigDecimal getSalida() {
+		Redondear claseByRound = new Redondear();
+		return claseByRound.redondearBigDecimal(salida);
 	}
 
-	public void setSalida(Double salida) {
+	public void setSalida(BigDecimal salida) {
 		this.salida = salida;
 	}
 
