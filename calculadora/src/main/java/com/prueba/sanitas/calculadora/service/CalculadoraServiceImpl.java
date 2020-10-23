@@ -17,7 +17,7 @@ import io.corp.calculator.TracerImpl;
  *
  */
 @Service
-public class CalculadoraServiceImpl implements CalculadoraService {
+public class CalculadoraServiceImpl implements ICalculadoraService {
 	
 	TracerImpl trazador = new TracerImpl();
 	

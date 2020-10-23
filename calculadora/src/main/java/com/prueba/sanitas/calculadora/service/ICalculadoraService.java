@@ -10,7 +10,7 @@ import com.prueba.sanitas.calculdadora.dto.salida.SalidaDTO;
  * @author Jose
  *
  */
-public interface CalculadoraService {
+public interface ICalculadoraService {
 	
 	public SalidaDTO operacion(EntradaDTO entrada);
 }

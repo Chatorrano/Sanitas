@@ -11,7 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import com.prueba.sanitas.calculadora.controller.SanitasCalculadoraController;
+import com.prueba.sanitas.calculadora.controller.SanitasCalculadoraControllerImpl;
 import com.prueba.sanitas.calculadora.dto.entrada.EntradaDTO;
 import com.prueba.sanitas.calculadora.service.CalculadoraServiceImpl;
 import com.prueba.sanitas.calculadora.utils.Redondear;
@@ -27,7 +27,7 @@ class CalculadoraControllerTests {
 	/**
 	 * @throws java.lang.Exception
 	 */
-	private SanitasCalculadoraController controller;
+	private SanitasCalculadoraControllerImpl controller;
 	private CalculadoraServiceImpl calculadoraService;
 	private EntradaDTO auxiliarPrueba;
 	private SalidaDTO salida;
@@ -37,7 +37,7 @@ class CalculadoraControllerTests {
 	public void setUp() {
 		claseByRound = new Redondear();
 		calculadoraService = Mockito.mock(CalculadoraServiceImpl.class);
-		controller = new SanitasCalculadoraController(calculadoraService);	
+		controller = new SanitasCalculadoraControllerImpl(calculadoraService);	
 	}
 
 	@Test
