@@ -22,11 +22,6 @@ import com.prueba.sanitas.calculadora.service.ICalculadoraService;
 import com.prueba.sanitas.calculadora.utils.TypeOperation;
 import com.prueba.sanitas.calculdadora.dto.salida.SalidaDTO;
 
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
-
 /**
  * @author Jose
  **
@@ -51,15 +46,9 @@ public class SanitasCalculadoraControllerImpl implements ISanitasCalculadoraCont
 	 *
 	 * @return Resultado de la operacion
 	 */
-	@ApiOperation(value = "Operación aritmetica de dos numeros", notes = "Devuelve la operación elegida de dos elementos aritmeticos no nulos")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "OK", response = SalidaDTO.class),
-			@ApiResponse(code = 404, message = "Not Found", response = String.class),
-			@ApiResponse(code = 400, message = "Invalid ID supplied", response = UnsupportedOperationException.class),
-			@ApiResponse(code = 500, message = "Internal Server Error", response = String.class) })
 	@ExceptionHandler(UnsupportedOperationException.class)
 	@GetMapping("/operacion")
-	public @ResponseBody ResponseEntity<SalidaDTO> operacion(
-			@ApiParam(value = "JSON con la operación a realizar y los numeros correspondientes", required = true) @NotNull @RequestParam TypeOperation operacion,
+	public @ResponseBody ResponseEntity<SalidaDTO> operacion(@NotNull @RequestParam TypeOperation operacion,
 			@NotNull @RequestParam BigDecimal numero1, @NotNull @RequestParam BigDecimal numero2) {
 		SalidaDTO salida = null;
 		EntradaDTO entrada = new EntradaDTO(operacion, numero1, numero2);

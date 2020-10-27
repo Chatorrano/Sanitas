@@ -27,7 +27,7 @@ import io.swagger.annotations.ApiResponses;
  */
 public interface ISanitasCalculadoraController {
 
-	@ApiOperation(value = "Operación aritmetica de dos numeros", notes = "Devuelve la operación elegida de dos elementos aritmeticos no nulos")
+	@ApiOperation(value = "Operación aritmetica de dos numeros", notes = "Devuelve la operación elegida de dos elementos aritmeticos")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "OK", response = SalidaDTO.class),
 			@ApiResponse(code = 404, message = "Not Found", response = String.class),
 			@ApiResponse(code = 400, message = "Invalid ID supplied", response = UnsupportedOperationException.class),
